@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图书展示平台</title>
+    <link rel="stylesheet" href="lab4-2501-006-index.css">
+</head>
+<body>
+    <!-- 登录/注册弹窗 -->
+    <div class="login-modal" id="loginModal">
+        <div class="modal-box">
+            <div class="login-form" id="loginForm">
+                <h3>用户登录</h3>
+                <div class="form-group">
+                    <input type="text" id="loginUsername" placeholder="请输入用户名">
+                </div>
+                <div class="form-group">
+                    <input type="password" id="loginPassword" placeholder="请输入密码">
+                </div>
+                <div class="form-buttons">
+                    <button class="btn-login" onclick="doLogin()">登录</button>
+                    <p>还没有账号？<a href="javascript:void(0)" onclick="showRegister()">立即注册</a></p>
+                </div>
+            </div>
+
+            <div class="register-form" id="registerForm">
+                <h3>用户注册</h3>
+                <div class="form-group">
+                    <input type="text" id="regUsername" placeholder="请设置用户名">
+                </div>
+                <div class="form-group">
+                    <input type="password" id="regPassword" placeholder="请设置密码">
+                </div>
+                <div class="form-group">
+                    <input type="password" id="regConfirmPwd" placeholder="请确认密码">
+                </div>
+                <div class="form-buttons">
+                    <button class="btn-register" onclick="doRegister()">注册</button>
+                    <p>已有账号？<a href="javascript:void(0)" onclick="showLogin()">立即登录</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 头部 -->
+    <header class="header">
+        <div class="logo">
+            <img src="logo.png" alt="网站Logo">
+            <h1>图书展示平台</h1>
+        </div>
+        <nav class="nav">
+            <ul>
+                <li><a href="#">首页</a></li>
+                <li><a href="#">图书分类</a></li>
+                <li><a href="#">新书上市</a></li>
+                <li><a href="#">热门推荐</a></li>
+                <li><a href="javascript:void(0)" onclick="openLoginModal()">登录/注册</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- 主体内容 -->
+    <main class="main-container">
+        <!-- 左侧栏 + 🔥 小型图书上下滚动动画 -->
+        <aside class="sidebar-left">
+            <h2>图书分类</h2>
+
+            <!-- 🔥 左侧小型图书动画（上下滚动） -->
+            <div class="book-anim-left">
+                <div class="anim-wrap" id="bookAnim">
+                    <img src="book1.png">
+                    <img src="book2.png">
+                    <img src="book3.png">
+                </div>
+            </div>
+
+            <ul class="category-nav">
+                <li><a href="#">文学小说</a></li>
+                <li><a href="#">科技科普</a></li>
+                <li><a href="#">历史传记</a></li>
+                <li><a href="#">少儿读物</a></li>
+                <li><a href="#">经济管理</a></li>
+                <li><a href="#">励志成功</a></li>
+            </ul>
+        </aside>
+
+        <section class="content-center">
+            <div class="main-title-center">
+                <h2>热门图书推荐</h2>
+            </div>
+
+            <div class="book-showcase">
+                <div class="book-card">
+                    <div class="book-img">
+                        <img src="book1.png" alt="图书封面">
+                        <div class="book-mask"><p>立即查看</p></div>
+                    </div>
+                    <div class="book-info">
+                        <h3>《人间草木》</h3>
+                        <p class="author">汪曾祺 著</p>
+                        <p class="price">¥39.80</p>
+                    </div>
+                </div>
+                <div class="book-card">
+                    <div class="book-img">
+                        <img src="book2.png" alt="图书封面">
+                        <div class="book-mask"><p>立即查看</p></div>
+                    </div>
+                    <div class="book-info">
+                        <h3>《长安的荔枝》</h3>
+                        <p class="author">马伯庸 著</p>
+                        <p class="price">¥28.50</p>
+                    </div>
+                </div>
+                <div class="book-card">
+                    <div class="book-img">
+                        <img src="book3.png" alt="图书封面">
+                        <div class="book-mask"><p>立即查看</p></div>
+                    </div>
+                    <div class="book-info">
+                        <h3>《蛤蟆先生去看心理医生》</h3>
+                        <p class="author">罗伯特·戴博德 著</p>
+                        <p class="price">¥32.00</p>
+                    </div>
+                </div>
+                <div class="book-card">
+                    <div class="book-img">
+                        <img src="book4.png" alt="图书封面">
+                        <div class="book-mask"><p>立即查看</p></div>
+                    </div>
+                    <div class="book-info">
+                        <h3>《你当像鸟飞往你的山》</h3>
+                        <p class="author">塔拉·韦斯特弗 著</p>
+                        <p class="price">¥45.00</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-title"><h2>热门推荐</h2></div>
+            <div class="hot-recommend">
+                <div class="recommend-item">
+                    <img src="hot1.png" alt="热门推荐">
+                    <p>《三体》全集</p>
+                </div>
+                <div class="recommend-item">
+                    <img src="hot2.png" alt="热门推荐">
+                    <p>《明朝那些事儿》</p>
+                </div>
+                <div class="recommend-item">
+                    <img src="hot3.png" alt="热门推荐">
+                    <p>《东野圭吾精选》</p>
+                </div>
+            </div>
+
+            <div class="section-title"><h2>新书上市</h2></div>
+            <div class="new-book-table">
+                <table>
+                    <tr>
+                        <th>图书名称</th>
+                        <th>作者</th>
+                        <th>出版日期</th>
+                        <th>价格</th>
+                    </tr>
+                    <tr>
+                        <td>《云边有个小卖部》</td>
+                        <td>张嘉佳</td>
+                        <td>2024-01-15</td>
+                        <td>¥42.00</td>
+                    </tr>
+                    <tr>
+                        <td>《长安十二时辰》</td>
+                        <td>马伯庸</td>
+                        <td>2024-02-20</td>
+                        <td>¥58.00</td>
+                    </tr>
+                    <tr>
+                        <td>《晚熟的人》</td>
+                        <td>莫言</td>
+                        <td>2024-03-10</td>
+                        <td>¥49.90</td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+
+        <aside class="sidebar-right">
+            <div class="promo-box">
+                <h3>限时促销</h3>
+                <img src="ad.png" alt="促销广告">
+                <p>全场图书满100减30</p>
+                <p>活动时间：4.15-4.30</p>
+            </div>
+        </aside>
+    </main>
+
+    <footer class="footer">
+        <p>© 2026 图书展示平台 - 版权所有</p>
+    </footer>
+
+    <script>
+        // 🔥 左侧图书上下滚动动画
+        let animIndex = 0;
+        const bookAnim = document.getElementById('bookAnim');
+        function startAnim() {
+            animIndex++;
+            if (animIndex > 2) animIndex = 0;
+            bookAnim.style.transform = `translateY(-${animIndex * 120}px)`;
+        }
+        setInterval(startAnim, 2500);
+
+        // 登录注册功能
+        function openLoginModal() {
+            document.getElementById('loginModal').style.display = 'block';
+            showLogin();
+        }
+        document.getElementById('loginModal').addEventListener('click', function(e) {
+            if (e.target === this) this.style.display = 'none';
+        });
+        function showLogin() {
+            document.getElementById('loginForm').style.display = 'block';
+            document.getElementById('registerForm').style.display = 'none';
+        }
+        function showRegister() {
+            document.getElementById('loginForm').style.display = 'none';
+            document.getElementById('registerForm').style.display = 'block';
+        }
+        function doRegister() {
+            let username = document.getElementById('regUsername').value.trim();
+            let password = document.getElementById('regPassword').value.trim();
+            let confirmPwd = document.getElementById('regConfirmPwd').value.trim();
+            if (!username || !password || !confirmPwd) { alert('请填写完整信息！'); return; }
+            if (password !== confirmPwd) { alert('两次密码不一致！'); return; }
+            alert('注册成功！'); showLogin();
+        }
+        function doLogin() {
+            alert('登录成功！');
+            document.getElementById('loginModal').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
